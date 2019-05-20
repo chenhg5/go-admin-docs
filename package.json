@@ -1,0 +1,22 @@
+{
+  "name": "go-admin",
+  "version": "1.0.0",
+  "description": "Describe go-admin here",
+  "private": true,
+  "scripts": {
+    "deploy": "rdoc --publish <your repo url>",
+    "build": "rdoc -d home,introduce,demo,faq,github --clean --build",
+    "start": "rdoc -d home,introduce,demo,faq,github --clean"
+  },
+  "keywords": [
+    "go-admin",
+    "rdoc",
+    "react-doc",
+    "react"
+  ],
+  "dependencies": {
+    "rdoc": "1.10.x"
+  },
+  "author": "",
+  "license": "MIT"
+}
