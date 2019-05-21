@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "deploy": "rdoc --publish <your repo url>",
-    "build": "rdoc -d home,introduce,demo,faq,github --clean --build",
-    "start": "rdoc -d home,introduce,demo,faq,github --clean"
+    "build": "rdoc -d home,introduce,demo,faq,qq,github --clean --build",
+    "start": "rdoc -d home,introduce,demo,faq,qq,github --clean"
   },
   "keywords": [
     "go-admin",

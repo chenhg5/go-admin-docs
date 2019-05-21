@@ -1,6 +1,6 @@
 <!--
 title: 快速开始 
-sort: 1
+sort: 2
 -->
 
 go-admin通过各种适配器使得你在各个web framework中使用都十分的方便。

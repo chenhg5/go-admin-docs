@@ -30,7 +30,7 @@ body, html { background: #fff; }
   padding-bottom: 20px;
 }
 .jumbotron-des {
-  font-size: 1.25rem;
+  font-size: 1.55rem;
   line-height: 1.5;
   font-weight: 300;
   margin-bottom: 30px;
@@ -59,115 +59,121 @@ body, html { background: #fff; }
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
+.banner-start-command {
+    background: #3a4046;
+    font-family: Source Code Pro,Monaco,Menlo,Consolas,monospace;
+    padding: 15px 20px;
+    font-size: 0.9rem;
+}
+.banner-start-link {
+    background: #859096;
+    padding: 15px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+    font-size: 0.9rem;
+    margin-left: -7px;
+    color: #c7d6d6 !important;
+}
+.banner-start-command:before {
+    content: "$";
+    opacity: .5;
+    padding-right: 10px;    
+}
+.font-weight-light {
+    font-weight: 300!important;
+}
+.callout.minimal .callout-title {
+    color: #444;
+    font-weight: 300;
+    font-size: 26px;
+    margin: 0 0 30px;
+    padding-top: 10px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.callout.minimal p {
+    color: #777;
+    font-size: 17px;
+}
+.callout.minimal p, .callout.pop p {
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+.callout.minimal {
+    box-shadow: 0 10px 40px 0 rgba(62,57,107,.07), 0 2px 9px 0 rgba(62,57,107,.06);
+    border-radius: 4px;
+    padding: 15px 30px 20px;
+    transition: all .2s ease;
+}
+
+.callout {
+    display: block;
+    margin-bottom: 15px;
+    background: #fff;
+    min-width: 100%;
+}
+.callout-icon.text-primary.py-2 {
+  text-align: center;
+}
 </style>
 <div class="jumbotron">
   <div class="jumbotron-warpper">
-    <div class="jumbotron-title">GoAdmin </div>
-    <div class="jumbotron-des">GoAdmin 可以帮助你的golang应用快速实现数据可视化，搭建一个数据管理平台。</div>
-    <a class="jumbotron-btn" href="#/introduce/init-project">快速开始</a>
+    <div class="jumbotron-des">GoAdmin 可以帮助您的golang应用快速实现数据可视化，短时间内搭建一个<br>功能齐全的数据管理平台。</div>
+    <!-- <a class="jumbotron-btn" href="#/introduce/init-project">快速开始</a> -->
+    <div class="jumbotron-des">
+      <span class="banner-start-command d-inline-block font-weight-light">go get github.com/chenhg5/go-admin</span>
+      <a class="banner-start-link text-white d-inline-block" href="#/introduce/install">-></a>
+    </div>
+    <div class="jumbotron-des" style="margin-top: 40px;">
+      <iframe src="https://ghbtns.com/github-btn.html?user=chenhg5&amp;repo=go-admin&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+      <iframe src="https://ghbtns.com/github-btn.html?user=chenhg5&amp;repo=go-admin&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+    </div>
   </div>
 </div>
 <div class="jumbotron-block"> </div>
 
-## 特征
-
-- 使用adminlte构建的漂亮的管理界面
-- 大量插件供使用
-- 完善的认证系统
-- 支持多个web框架：gin, beego, echo...
-
-## 使用
-
-详见 [文档说明](https://github.com/chenhg5/go-admin/blob/master/docs/cn/index.md)
-
-### 安装
-
-```go get -v -u github.com/chenhg5/go-admin```
-
-### 导入 sql
-
-[https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql)
-
-### 利用命令行工具导出数据模型文件
-
-```
-go install github.com/chenhg5/go-admin/admincli
-
-admincli generate -h=127.0.0.1 -p=3306 -P=root -n=godmin -pa=main -o=./model
-```
-
-### Gin 例子
-
-```go
-package main
-
-import (
-  "github.com/gin-gonic/gin"
-  _ "github.com/chenhg5/go-admin/adapter/gin"
-  "github.com/chenhg5/go-admin/engine"
-  "github.com/chenhg5/go-admin/plugins/admin"
-  "github.com/chenhg5/go-admin/modules/config"
-  "github.com/chenhg5/go-admin/examples/datamodel"
-)
-
-func main() {
-  r := gin.Default()
-
-  eng := engine.Default()
-
-  // global config
-  cfg := config.Config{
-    DATABASE: []config.Database{
-        {
-      HOST:         "127.0.0.1",
-      PORT:         "3306",
-      USER:         "root",
-      PWD:          "root",
-      NAME:         "godmin",
-      MAX_IDLE_CON: 50,
-      MAX_OPEN_CON: 150,
-      DRIVER:       "mysql",
-        },
-          },
-    DOMAIN: "localhost", // 是cookie相关的，访问网站的域名
-    PREFIX: "admin",
-    // STORE 必须设置且保证有写权限，否则增加不了新的管理员用户
-    STORE: config.Store{
-        PATH:   "./uploads",
-        PREFIX: "uploads",
-    },
-    LANGUAGE: "cn", 
-    // 开发模式
-                DEBUG: true,
-                // 日志文件位置，需为绝对路径
-                INFOLOG: "/var/logs/info.log",
-                ACCESSLOG: "/var/logs/access.log",
-                ERRORLOG: "/var/logs/error.log",
-  }
-
-      // Generators： 详见 https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/tables.go
-  adminPlugin := admin.NewAdmin(datamodel.Generators)
-
-  eng.AddConfig(cfg).AddPlugins(adminPlugin).Use(r)
-
-  r.Run(":9033")
-}
-```
-
-其他例子: [https://github.com/chenhg5/go-admin/tree/master/examples](https://github.com/chenhg5/go-admin/tree/master/examples)
-
-## 技术支持
-
-- [adminlte](https://adminlte.io/themes/AdminLTE/index2.html)
-
-## 贡献
-
-非常欢迎提pr，<strong>这里可以加入开发小组</strong>
-
-QQ群: 756664859，记得备注加群来意
-
-这里是[开发计划](https://github.com/chenhg5/go-admin/projects)
-
-## 十分感谢
-
-inspired by [laravel-admin](https://github.com/z-song/laravel-admin)
+<section class="hero gray">
+    <div class="ui container">
+        <div class="ui equal width stackable doubling grid">
+            <div class="column d-flex align-items-stretch">
+                <div class="callout minimal text-center">
+                    <div class="callout-icon text-primary py-2"><i class="disabled camera retro icon" style="font-size: 5rem;"></i></div>
+                    <div class="callout-head">
+                        <div class="callout-title">漂亮的管理界面</div>
+                    </div>
+                    <p>使用adminlte构建的漂亮的管理界面</p>
+                </div>
+            </div>
+            <div class="column d-flex align-items-stretch">
+                <div class="callout minimal text-center">
+                    <div class="callout-icon text-primary py-2"><i class="disabled plug icon" style="font-size: 5rem;"></i></div>
+                    <div class="callout-head">
+                        <div class="callout-title">大量插件供使用</div>
+                    </div>
+                    <p>不用重复造轮子，使用插件提升效率</p>
+                </div>
+            </div>
+            <div class="column d-flex align-items-stretch">
+                <div class="callout minimal text-center">
+                    <div class="callout-icon text-primary py-2"><i class="disabled users icon" style="font-size: 5rem;"></i></div>
+                    <div class="callout-head">
+                        <div class="callout-title">完善的认证系统</div>
+                    </div>
+                    <p>开箱即用的rcba认证系统</p>
+                </div>
+            </div>
+            <div class="column d-flex align-items-stretch">
+                <div class="callout minimal text-center">
+                    <div class="callout-icon text-primary py-2"><i class="disabled handshake outline icon" style="font-size: 5rem;"></i></div>
+                    <div class="callout-head">
+                        <div class="callout-title">支持多个web框架</div>
+                    </div>
+                    <p>多个golang web框架支持：gin, beego, echo, iris等等</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
