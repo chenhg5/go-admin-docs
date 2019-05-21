@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{417:function(n,o){n.exports="\x3c!--\ntitle: Demo\nsort: 3\n--\x3e\n\ndemo: [http://demo.go-admin.cn/admin](http://demo.go-admin.cn/admin)\n账号：admin  密码：admin\n"}}]);

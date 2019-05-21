@@ -1,7 +1,5 @@
 <!--
 title: Demo
 sort: 3
+url: http://demo.go-admin.cn/admin
 -->
-
-demo: [http://demo.go-admin.cn/admin](http://demo.go-admin.cn/admin)
-账号：admin  密码：admin

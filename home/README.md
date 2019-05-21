@@ -1,7 +1,8 @@
 <!--
-title: GoAdmin
+title: 
 layout: IndexLayout
 visible: true
+logo: https://ws2.sinaimg.cn/large/006tNc79ly1ftvqf8qeddj31bz07e40e.jpg
 -->
 
 <style>
