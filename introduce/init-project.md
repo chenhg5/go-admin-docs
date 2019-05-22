@@ -71,7 +71,8 @@ func main() {
 - 设置插件与配置
 - 挂载到Web框架中
 
-<br>
+</br>
+
 更多的例子可以看：[https://github.com/chenhg5/go-admin/tree/master/examples](https://github.com/chenhg5/go-admin/tree/master/examples)
 
 ## 配置项
