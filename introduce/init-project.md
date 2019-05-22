@@ -26,23 +26,23 @@ import (
 func main() {
 	r := gin.Default()
 
-        // 实例化一个go-admin引擎对象
+    // 实例化一个go-admin引擎对象
 	eng := engine.Default()
 
 	// go-admin全局配置
 	cfg := config.Config{
 		DATABASE: []config.Database{
 		    {
-			HOST:         "127.0.0.1",
-			PORT:         "3306",
-			USER:         "root",
-			PWD:          "root",
-			NAME:         "godmin",
-			MAX_IDLE_CON: 50,
-			MAX_OPEN_CON: 150,
-			DRIVER:       "mysql",
+				HOST:         "127.0.0.1",
+				PORT:         "3306",
+				USER:         "root",
+				PWD:          "root",
+				NAME:         "godmin",
+				MAX_IDLE_CON: 50,
+				MAX_OPEN_CON: 150,
+				DRIVER:       "mysql",
 		    },
-        	},
+        },
 		DOMAIN: "localhost", // 是cookie相关的，访问网站的域名
 		PREFIX: "admin",
 		// STORE 必须设置且保证有写权限，否则增加不了新的管理员用户
@@ -53,10 +53,10 @@ func main() {
 		LANGUAGE: "cn", 
 	}
 
-    	// Generators： 详见 https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/tables.go
+	// Generators： 详见 https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/tables.go
 	adminPlugin := admin.NewAdmin(datamodel.Generators)
 
-        // 增加配置与插件，使用Use方法挂载到Web框架中
+	// 增加配置与插件，使用Use方法挂载到Web框架中
 	eng.AddConfig(cfg).AddPlugins(adminPlugin).Use(r)
 
 	r.Run(":9033")
@@ -70,6 +70,7 @@ func main() {
 - 初始化插件
 - 设置插件与配置
 - 挂载到Web框架中
+
 
 更多的例子可以看：[https://github.com/chenhg5/go-admin/tree/master/examples](https://github.com/chenhg5/go-admin/tree/master/examples)
 
