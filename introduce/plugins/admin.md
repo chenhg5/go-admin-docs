@@ -43,19 +43,10 @@ go install github.com/chenhg5/go-admin/admincli
 - 生成
 
 ```bash
-admincli generate -h=127.0.0.1 -p=3306 -u=root -P=root -pa=main -n=goadmin -o=./
-
--h  host
--p  端口
--u  用户名
--P  密码
--n  数据库名
--pa 包名
--o  文件位置
-
+admincli generate
 ```
 
-运行完之后，会生成一个文件```users.go```，这个就是对应数据表的配置文件了，关于如何配置，在后面详细介绍。
+根据提示填写信息，运行完之后，会生成一个文件```users.go```，这个就是对应数据表的配置文件了，关于如何配置，在后面详细介绍。
 
 ### 设置访问路由
 
