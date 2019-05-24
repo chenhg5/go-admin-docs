@@ -50,10 +50,10 @@ admincli generate
 
 ### 设置访问路由
 
-生成完配置文件后，你需要设置访问这个数据表数据的路由，如：
+生成完配置文件后，同时也会生成一个路由配置文件```tables.go```，如：
 
 ```go
-package datamodel
+package main
 
 import "github.com/chenhg5/go-admin/plugins/admin/models"
 
@@ -128,6 +128,7 @@ func GetUsersTable() (usersTable models.Table) {
 	usersTable.Form.Description = "Users"
 
 	usersTable.ConnectionDriver = "mysql"
+	userTable.Editable = true
 
 	return
 }
@@ -193,6 +194,7 @@ type Form struct {
 	Value    string                // 表单默认值
 	Options  []map[string]string   // 表单选项
 	ExcuFun  FieldValueFun         // 过滤函数
+	PostFun  FieldValueFun         // 处理函数
 }
 ```
 
@@ -238,7 +240,7 @@ Options: []map[string]string{
 
 其中，field为字段名，value为选择对应的值。
 
-### 过滤函数ExcuFun说明
+### 过滤函数ExcuFun与处理函数PostFun说明
 
 ```go
 // RowModel contains ID and value of the single query result.
@@ -254,4 +256,6 @@ type FieldValueFun func(value RowModel) interface{}
 过滤函数接收一个参数，RowModel，表示当前编辑目标行，包含了id和显示的value，而过滤函数的返回值即是最终表单行显示的默认值。
 在表格中，可以自定义html返回。
 在表单中，对于非选择的表单类型，须返回string，对于单选、多选等选择表单类型，则返回[]string。
+
+处理函数与过滤函数类型一样，可以通过处理函数对表单提交后的数据处理，之后再插入表单。
 
