@@ -115,20 +115,18 @@ import (
 
 func GetUsersTable() (usersTable models.Table) {
 
-	usersTable.Info.FieldList = []types.Field{}
+	userTable = models.NewDefaultTable(models.DefaultTableConfig)
+	usersTable.GetInfo().FieldList = []types.Field{}
 
-	usersTable.Info.Table = "users"
-	usersTable.Info.Title = "Users"
-	usersTable.Info.Description = "Users"
+	usersTable.GetInfo().Table = "users"
+	usersTable.GetInfo().Title = "Users"
+	usersTable.GetInfo().Description = "Users"
 
-	usersTable.Form.FormList = []types.Form{}
+	usersTable.GetForm().FormList = []types.Form{}
 
-	usersTable.Form.Table = "users"
-	usersTable.Form.Title = "Users"
-	usersTable.Form.Description = "Users"
-
-	usersTable.ConnectionDriver = "mysql"
-	userTable.Editable = true
+	usersTable.GetForm().Table = "users"
+	usersTable.GetForm().Title = "Users"
+	usersTable.GetForm().Description = "Users"
 
 	return
 }
@@ -137,26 +135,32 @@ func GetUsersTable() (usersTable models.Table) {
 是一个函数，返回了```models.Table```这个类型对象。以下是```models.Table```的定义：
 
 ```go
-type Table struct {
-	Info             types.InfoPanel
-	Form             types.FormPanel
-	ConnectionDriver string
+type Table interface {
+	GetInfo() *types.InfoPanel
+	GetForm() *types.FormPanel
+	GetCanAdd() bool
+	GetEditable() bool
+	GetDeletable() bool
+	GetFiltersMap() []map[string]string
+	GetDataFromDatabase(path string, params *Parameters) PanelInfo
+	GetDataFromDatabaseWithId(id string) ([]types.Form, string, string)
+	UpdateDataFromDatabase(dataList map[string][]string)
+	InsertDataFromDatabase(dataList map[string][]string)
+	DeleteDataFromDatabase(id string)
 }
 ```
 
-包括了```Info```和```Form```，这两种类型对应的ui就是显示数据的表格和编辑新建数据的表单，截图展示如下：
+主要包括了```GetInfo()```和```GetForm()```，这两个函数返回的类型对应的ui就是显示数据的表格和编辑新建数据的表单，截图展示如下：
 
 - 此为```Info```表格
 
-</br>
+<br>
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fxoy26qnc5j31y60u0q91.jpg)
 
-</br>
-
 - 此为```Form```表单
 
-</br>
+<br>
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fxoy2w3cobj318k0ooabv.jpg)
 
