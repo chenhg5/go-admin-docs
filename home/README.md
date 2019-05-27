@@ -132,7 +132,7 @@ body, html { background: #fff; }
       <iframe src="https://ghbtns.com/github-btn.html?user=chenhg5&amp;repo=go-admin&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
     </div>
   </div>
-  <img src="http://ww2.sinaimg.cn/large/006tNc79ly1g38uzyy9d8j30b40b4abb.jpg" style="
+  <img src="http://quizfile.dadadaa.cn/everyday/app/jlds/img/006tNc79ly1g38uzyy9d8j30b40b4abb.jpg" style="
     width: 200px;
     height: 200px;
     position: absolute;

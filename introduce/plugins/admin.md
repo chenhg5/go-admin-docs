@@ -156,13 +156,13 @@ type Table interface {
 
 <br>
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxoy26qnc5j31y60u0q91.jpg)
+![](http://quizfile.dadadaa.cn/everyday/app/jlds/img/006tNbRwly1fxoy26qnc5j31y60u0q91.jpg)
 
 - 此为```Form```表单
 
 <br>
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxoy2w3cobj318k0ooabv.jpg)
+![](http://quizfile.dadadaa.cn/everyday/app/jlds/img/006tNbRwly1fxoy2w3cobj318k0ooabv.jpg)
 
 ### Info表格
 
