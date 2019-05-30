@@ -18,7 +18,7 @@ type Panel struct {
 
 对应的ui，可以看下图：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxoz5bm02oj31ek0u0wtz.jpg)
+![](http://quizfile.dadadaa.cn/everyday/app/jlds/img/006tNbRwly1fxoz5bm02oj31ek0u0wtz.jpg)
 
 ## 如何使用
 
