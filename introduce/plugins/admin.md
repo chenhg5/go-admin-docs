@@ -219,6 +219,7 @@ type Form struct {
 - 双选择框
 - 多选
 - icon下拉选择框
+- 时间选择框
 
 </br>
 
