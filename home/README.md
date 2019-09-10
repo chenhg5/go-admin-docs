@@ -169,7 +169,7 @@ body, html { background: #fff; }
                     <div class="callout-head">
                         <div class="callout-title">完善的认证系统</div>
                     </div>
-                    <p>开箱即用的rcba认证系统</p>
+                    <p>开箱即用的rbac认证系统</p>
                 </div>
             </div>
             <div class="column d-flex align-items-stretch">
