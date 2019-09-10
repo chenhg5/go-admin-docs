@@ -13,6 +13,8 @@ go-admin通过各种适配器使得你在各个web框架中使用都十分的方
 - [gorilla/mux](http://github.com/gorilla/mux)
 - [iris](https://github.com/kataras/iris)
 
+<br>
+
 你可以选择你拿手的或者业务项目正在用的框架开始，如果上述没有你喜欢的框架，欢迎给我们提issue或pr！
 
 下面以gin这个框架为例子，演示搭建过程。
@@ -82,6 +84,8 @@ func main() {
 - 设置插件与配置
 - 挂载到Web框架中
 
+<br>
+
 接着执行```go run main.go```运行代码，访问：[http://localhost:9033/admin/login](http://localhost:9033/admin/login)
 默认登录账号：admin
 默认登录密码：admin
@@ -92,8 +96,8 @@ func main() {
 
 ## 添加自己的业务表进行管理
 
-详见：
-1 [插件的使用](http://doc.go-admin.cn/#/introduce/plugins/plugins)
+详见：<br>
+1 [插件的使用](http://doc.go-admin.cn/#/introduce/plugins/plugins)<br>
 2 [Admin插件使用](http://doc.go-admin.cn/#/introduce/plugins/admin)
 
 ## 全局配置项说明
