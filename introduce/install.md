@@ -1,5 +1,5 @@
 <!--
-title: 安装 (前导准备)
+title: 安装
 sort: 1
 -->
 
@@ -22,17 +22,17 @@ go get -v -u github.com/chenhg5/go-admin
 
 ### 导入程序所需sql到对应自建数据库中
 
-mysql
-
-[https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql)
-
-sqlite
-
-[https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.db](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.db)
-
-postgresql
-
-[https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql)
+> mysql
+> 
+> [https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.sql)
+> 
+> sqlite
+> 
+> [https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.db](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.db)
+> 
+> postgresql
+> 
+> [https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql)
 
 ### 新建或导入自己的业务表
 
