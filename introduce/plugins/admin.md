@@ -42,6 +42,8 @@ go install github.com/chenhg5/go-admin/admincli
 
 - 生成
 
+在项目文件夹下执行
+
 ```bash
 admincli generate
 ```
@@ -59,12 +61,21 @@ import "github.com/chenhg5/go-admin/plugins/admin/models"
 
 // The key of Generators is the prefix of table info url.
 // The corresponding value is the Form and Table data.
+//
+// http://{{config.DOMAIN}}:{{PORT}}/{{config.PREFIX}}/info/{{key}}
+//
+// example:
+//
+// "posts"   => http://localhost:9033/admin/info/posts
+// "authors" => http://localhost:9033/admin/info/authors
+//
 var Generators = map[string]models.TableGenerator{
 	"user":    GetUserTable,
 }
 ```
 
-其中，```"user"```就是对应的前缀，```GetUserTable```就是配置文件中的方法，只要一一对应即可。
+其中，```"user"```就是对应的访问路由前缀，```GetUserTable```就是表格数据生成方法。
+对应的访问路由地址就是：http://localhost:9033/admin/info/users
 
 ### 初始化，并在引擎中加载
 
@@ -79,15 +90,39 @@ import (
 	"github.com/chenhg5/go-admin/engine"
 	"github.com/chenhg5/go-admin/plugins/admin"
 	"github.com/chenhg5/go-admin/modules/config"
-	"github.com/chenhg5/go-admin/examples/datamodel"
+	"github.com/chenhg5/go-admin/modules/language"
 )
 
 func main() {
 	r := gin.Default()
 	eng := engine.Default()
-	cfg := config.Config{}
+	cfg := config.Config{
+		DATABASE: []config.Database{
+			{
+				HOST:         "127.0.0.1",
+				PORT:         "3306",
+				USER:         "root",
+				PWD:          "root",
+				NAME:         "godmin",
+				MAX_IDLE_CON: 50,
+				MAX_OPEN_CON: 150,
+				DRIVER:       "mysql",
+			},
+		},
+		DOMAIN: "localhost", // 是cookie相关的，访问网站的域名
+		PREFIX: "admin", // 访问网站的前缀
+		// STORE 必须设置且保证有写权限，否则增加不了新的管理员用户
+		STORE: config.Store{
+			PATH:   "./uploads",
+			PREFIX: "uploads",
+		},
+		LANGUAGE: language.CN,
+	}
 
-	adminPlugin := admin.NewAdmin(datamodel.Generators)
+	adminPlugin := admin.NewAdmin(Generators)
+
+	// 也可以调用 AddGenerator 方法加载
+	// adminPlugin.AddGenerator("user", GetUserTable)
 	
 	eng.AddConfig(cfg).
 		AddPlugins(adminPlugin).  // 加载插件
@@ -101,9 +136,12 @@ func main() {
 
 运行起来后，访问登录网址，进入到菜单管理页面，设置好数据表的管理菜单就可以在侧边栏中进入了。
 
-## 配置文件介绍
+> 注：
+>
+> 在以上例子中，登录网址为：http://localhost:9033/admin/login
+> 菜单管理页面为：http://localhost:9033/admin/menu
 
-配置文件，如下：
+## 业务数据表生成方法文件介绍
 
 ```go
 package main
@@ -132,7 +170,7 @@ func GetUsersTable() (usersTable models.Table) {
 }
 ```
 
-是一个函数，返回了```models.Table```这个类型对象。以下是```models.Table```的定义：
+业务数据表生成方法是一个函数，返回了```models.Table```这个类型对象。以下是```models.Table```的定义：
 
 ```go
 type Table interface {
@@ -169,13 +207,13 @@ type Table interface {
 ```go
 type InfoPanel struct {
 	FieldList   []Field  // 字段类型
-	Table       string         // 表格
-	Title       string         // 标题
-	Description string         // 描述
+	Table       string   // 表格
+	Title       string   // 标题
+	Description string   // 描述
 }
 
 type Field struct {
-	FilterFn  FieldFilterFn     // 过滤函数
+	FilterFn  FieldFilterFn    // 过滤函数
 	Field    string            // 字段名
 	TypeName string            // 字段类型名
 	Head     string            // 标题
@@ -189,9 +227,9 @@ type Field struct {
 ```go
 type FormPanel struct {
 	FormList   []Form    // 字段类型
-	Table       string         // 表格
-	Title       string         // 标题
-	Description string         // 描述
+	Table       string   // 表格
+	Title       string   // 标题
+	Description string   // 描述
 }
 
 type Form struct {
@@ -203,14 +241,14 @@ type Form struct {
 	FormType string                // 表单类型
 	Value    string                // 表单默认值
 	Options  []map[string]string   // 表单选项
-	FilterFn  FieldFilterFn         // 过滤函数
+	FilterFn  FieldFilterFn        // 过滤函数
 	PostFun  FieldFilterFn         // 处理函数
 }
 ```
 
 目前支持的表单类型有：
 
-- 默认m
+- 默认
 - 普通文本
 - 单选
 - 密码
