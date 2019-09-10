@@ -86,8 +86,8 @@ func main() {
 
 <br>
 
-接着执行```go run main.go```运行代码，访问：[http://localhost:9033/admin/login](http://localhost:9033/admin/login)
-默认登录账号：admin
+接着执行```go run main.go```运行代码，访问：[http://localhost:9033/admin/login](http://localhost:9033/admin/login) <br>
+默认登录账号：admin<br>
 默认登录密码：admin
 
 </br>
@@ -96,7 +96,7 @@ func main() {
 
 ## 添加自己的业务表进行管理
 
-详见：<br>
+详见：<br><br>
 1 [插件的使用](http://doc.go-admin.cn/#/introduce/plugins/plugins)<br>
 2 [Admin插件使用](http://doc.go-admin.cn/#/introduce/plugins/admin)
 
