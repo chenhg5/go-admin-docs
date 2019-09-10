@@ -42,6 +42,7 @@ go install github.com/chenhg5/go-admin/admincli
 
 - 生成
 
+<br>
 在项目文件夹下执行
 
 ```bash
@@ -139,6 +140,7 @@ func main() {
 > 注：
 >
 > 在以上例子中，登录网址为：http://localhost:9033/admin/login
+>
 > 菜单管理页面为：http://localhost:9033/admin/menu
 
 ## 业务数据表生成方法文件介绍
