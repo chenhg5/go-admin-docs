@@ -87,10 +87,9 @@ func main() {
 <br>
 
 接着执行```go run main.go```运行代码，访问：[http://localhost:9033/admin/login](http://localhost:9033/admin/login) <br>
+<br>
 默认登录账号：admin<br>
 默认登录密码：admin
-
-</br>
 
 更多框架的例子可以看：[https://github.com/chenhg5/go-admin/tree/master/examples](https://github.com/chenhg5/go-admin/tree/master/examples)
 
