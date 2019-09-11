@@ -12,6 +12,7 @@ go-admin通过各种适配器使得你在各个web框架中使用都十分的方
 - [echo](https://github.com/labstack/echo)
 - [gorilla/mux](http://github.com/gorilla/mux)
 - [iris](https://github.com/kataras/iris)
+- [chi](https://github.com/go-chi/chi)
 
 <br>
 
