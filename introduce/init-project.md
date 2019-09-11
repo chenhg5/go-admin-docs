@@ -32,6 +32,7 @@ import (
 	"github.com/chenhg5/go-admin/engine"
 	"github.com/chenhg5/go-admin/examples/datamodel"
 	"github.com/chenhg5/go-admin/modules/config"
+	"github.com/chenhg5/go-admin/modules/language"
 	"github.com/chenhg5/go-admin/plugins/admin"
 	"github.com/gin-gonic/gin"
 )
@@ -63,7 +64,7 @@ func main() {
 			PATH:   "./uploads",
 			PREFIX: "uploads",
 		},
-		LANGUAGE: "cn",
+		LANGUAGE: language.CN,
 	}
 
 	// 这里引入你需要管理的业务表配置
