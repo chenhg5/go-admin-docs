@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{414:function(n,o){n.exports="\x3c!--\ntitle: 适配器\nsort: 1\n--\x3e\n\n待续"}}]);

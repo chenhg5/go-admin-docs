@@ -1,6 +1,6 @@
 <!--
 title: 安装
-sort: 1
+sort: 2
 -->
 
 本程序是基于golang，推荐使用版本高于1.11的golang，具体请访问：[https://golang.org](https://golang.org)

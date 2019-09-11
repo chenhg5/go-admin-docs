@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{416:function(n,o){n.exports="\x3c!--\ntitle: GITHUB\nurl: https://github.com/chenhg5/go-admin\nsort: 4\n--\x3e\n"}}]);
