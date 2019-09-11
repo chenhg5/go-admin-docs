@@ -34,10 +34,6 @@ go get -v -u github.com/chenhg5/go-admin
 > 
 > [https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql](https://github.com/chenhg5/go-admin/blob/master/examples/datamodel/admin.pgsql)
 
-## 新建或导入自己的业务表
-
-数据库中需要存在自己的业务表，否则后续生成操作会出现"no tables"
-
 ## 安装命令行工具
 
 安装命令行工具，同时确保```$GOPATH/bin```有在环境变量路径中
