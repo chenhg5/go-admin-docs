@@ -11,7 +11,7 @@ sort: 2
 go get -v -u github.com/chenhg5/go-admin
 ```
 
-建议开启```go mod```自动加载依赖，并设置```GOPROXY```为https://goproxy.cn
+建议开启```GO111MODULE=on```自动加载依赖，并设置```GOPROXY```为https://goproxy.cn
 要保证下载的是最新版本，旧版本可能出现各种问题，具体版本看这里：<br>
 
 [https://github.com/chenhg5/go-admin/releases](https://github.com/chenhg5/go-admin/releases)

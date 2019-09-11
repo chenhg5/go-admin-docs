@@ -3,18 +3,23 @@ title: 介绍
 sort: 1
 -->
 
+go-admin 是一个数据可视化管理平台搭建框架。
+go-admin 提供了一整套视觉ui给golang程序调用，并内置了一个sql关系数据库管理后台插件。
+<br>
 以前我们写一个管理后台，我们需要至少一个后台工程师，一个前端工程师，花费一周时间才能搭建完成。
 而现在有了go-admin，我们可以不需要前端工程师，我们的后端工程师甚至也不需要太懂得前端的知识，我们即可在半个小时内构建起一个完善的后台管理系统。
 如果你的需求不复杂，只是简单的增删改查，那么你所需要的只是一些golang文件，类似这样的结构：
 
 ```shell
 .
-└── management_platform
-    ├── main.go         入口文件
-    ├── users.go        业务表
-    ├── products.go     业务表
-    ├── ...
-    └── orders.go       业务表
+- management_platform 项目文件夹
+---- main.go          入口文件
+---- users.go         业务表
+---- products.go      业务表
+---- ...
+---- orders.go        业务表
 ```
 
 就可以运行起一个后台程序。而所有文件都可以打包成一个二进制文件，非常利于分发与部署。
+
+想知道怎么使用？[点这里马上开始吧](http://doc.go-admin.cn/#/introduce/install)
