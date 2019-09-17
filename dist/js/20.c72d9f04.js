@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{413:function(n,o){n.exports="\x3c!--\ntitle: 插件开发\nsort: 2\n--\x3e\n\n参考例子：<br>\n\n- [开发一个源码插件](https://github.com/chenhg5/go-admin/blob/master/plugins/example/example.go)\n- [开发一个二进制插件](https://github.com/chenhg5/go-admin/blob/master/plugins/example/go_plugin/main.go)"}}]);
